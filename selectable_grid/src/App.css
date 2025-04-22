@@ -1,0 +1,25 @@
+body {
+  font-family: Poppins;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 10), var(--width));
+  grid-template-rows: repeat(var(--rows, 10), var(--height));
+  gap: 0.125rem;
+  user-select: none;
+}
+
+.box {
+  width: var(--width);
+  height: var(--height);
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  background-color: var(--selected-grid-bg);
+}

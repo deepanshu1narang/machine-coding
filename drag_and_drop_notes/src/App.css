@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+}
+
+
+.note {
+  position: absolute;
+  border: 1px solid black;
+  user-select: none;
+  padding: 0.625rem;
+  cursor: move;
+  background-color: lightyellow;
+  width: 12rem;
+}
