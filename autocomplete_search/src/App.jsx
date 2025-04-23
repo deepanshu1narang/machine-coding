@@ -15,8 +15,8 @@ function App() {
   }, [search]);
 
   const fetchData = (val) => {
-    if (cache[input]) {
-      setResults(cache[input]);
+    if (cache[val]) {
+      setResults(cache[val]);
     }
     else {
       fetch('https://dummyjson.com/recipes/search?q=' + val)
@@ -25,7 +25,7 @@ function App() {
           setResults(data?.recipes);
           setCache(cache => ({
             ...cache,
-            [input]: data?.recipes
+            [val]: data?.recipes
           }));
         })
         .catch(err => console.log(err));

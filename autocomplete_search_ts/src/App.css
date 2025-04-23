@@ -1,0 +1,60 @@
+h3 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.input_result-box {
+  flex: 1;
+  /* width: 100%; */
+  position: relative;
+}
+
+.recipe {
+  flex: 1;
+  /* width: 100%; */
+}
+
+.input_result-box>input {
+  width: 100%;
+}
+
+
+
+.input_result-box>input:focus+.results,
+.results:hover,
+.results:hover>.result:focus {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid black;
+  margin-top: 0.2rem;
+  max-height: 30rem;
+  overflow-y: auto;
+}
+
+.results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: none;
+  background: white;
+}
+
+.result.active {
+  background-color: aliceblue;
+}
+
+.input_result-box>input:focus+.results>.result:hover {
+  background-color: aliceblue;
+}
