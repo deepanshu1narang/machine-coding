@@ -1,0 +1,163 @@
+[
+    {
+        "id": 1,
+        "label": "Global",
+        "checked": false,
+        "indeterminate ": false,
+        "parentId": null,
+        "children": [
+            {
+                "id": 2,
+                "label": "Global RMS Internal Apps",
+                "checked": false,
+                "indeterminate ": false,
+                "parentId": 1,
+                "children": [
+                    {
+                        "id": 3,
+                        "label": "RMS Admin Panel",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 2,
+                        "children": []
+                    },
+                    {
+                        "id": 4,
+                        "label": "RMS Analytics",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 2,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "label": "Global RMS External Apps",
+                "checked": false,
+                "indeterminate ": false,
+                "parentId": 1,
+                "children": [
+                    {
+                        "id": 6,
+                        "label": "External Portal",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 5,
+                        "children": [
+                            {
+                                "id": 7,
+                                "label": "Customer Dashboard",
+                                "checked": false,
+                                "indeterminate ": false,
+                                "parentId": 6,
+                                "children": [
+                                    {
+                                        "id": 8,
+                                        "label": "Customer Analytics",
+                                        "checked": false,
+                                        "indeterminate ": false,
+                                        "parentId": 7,
+                                        "children": [
+                                            {
+                                                "id": 9,
+                                                "label": "Customer Reports Generator",
+                                                "checked": false,
+                                                "indeterminate ": false,
+                                                "parentId": 8,
+                                                "children": []
+                                            },
+                                            {
+                                                "id": 10,
+                                                "label": "Customer Reports Operator",
+                                                "checked": false,
+                                                "indeterminate ": false,
+                                                "parentId": 8,
+                                                "children": []
+                                            },
+                                            {
+                                                "id": 11,
+                                                "label": "Customer Reports Implementation",
+                                                "checked": false,
+                                                "indeterminate ": false,
+                                                "parentId": 8,
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "label": "Internal Portal",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 5,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "label": "Static",
+        "checked": false,
+        "indeterminate ": false,
+        "parentId": null,
+        "children": []
+    },
+    {
+        "id": 14,
+        "label": "Public",
+        "checked": false,
+        "indeterminate ": false,
+        "parentId": null,
+        "children": [
+            {
+                "id": 15,
+                "label": "Public RMS Internal Apps",
+                "checked": false,
+                "indeterminate ": false,
+                "parentId": 14,
+                "children": [
+                    {
+                        "id": 16,
+                        "label": "Public Admin Panel",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 15,
+                        "children": [
+                            {
+                                "id": 17,
+                                "label": "Public Systems",
+                                "checked": false,
+                                "indeterminate ": false,
+                                "parentId": 16,
+                                "children": []
+                            },
+                            {
+                                "id": 18,
+                                "label": "Public Sapiens",
+                                "checked": false,
+                                "indeterminate ": false,
+                                "parentId": 16,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "label": "Public Analytics",
+                        "checked": false,
+                        "indeterminate ": false,
+                        "parentId": 15,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,47 @@
+fieldset {
+    border: 1px solid black;
+    font-size: 1.5rem;
+    width: fit-content;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.checkbox input {
+    margin-right: 0.5rem;
+}
+
+.node-layout {
+    font-size: 1.2rem;
+    margin: 0.25rem 1rem;
+    width: 100%;
+}
+
+.node-layout button {
+    height: 1rem;
+    width: min-content;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.node-layout .empty-space {
+    height: 1rem;
+    width: 1.25rem;
+    border: none;
+    flex-shrink: 0;
+}
+
+.node-layout button.expanded {
+    transform: rotate(90deg);
+}
+
+.node-checkbox {
+    display: flex;
+    align-items: center;
+}
