@@ -1,0 +1,33 @@
+.app {
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    align-items: center;
+    border: nonehangman;
+}
+
+.result-div {
+    margin-top: 1rem;
+    display: flex;
+    width: 80%;
+    font-size: 2rem;
+    text-align: center;
+    height: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result {
+    flex: 4;
+}
+
+.refresh {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.refresh:disabled {
+    cursor: not-allowed;
+}

@@ -1,0 +1,42 @@
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 90%;
+    font-size: 1.5rem;
+}
+
+.key {
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: large;
+    border: 0.1rem solid black;
+}
+
+.key.active {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+
+.key.active {
+    opacity: 0.3;
+}
+
+.key:focus:not(:disabled),
+.key:hover:not(:disabled) {
+    background-color: hsl(200, 100%, 75%);
+}
+
+.key:disabled {
+    cursor: auto;
+    border: 0.1rem solid rgba(0, 0, 0, 0.351);
+    color: rgba(0, 0, 0, 0.351);
+}
+
+.activeLetters {
+    background-color: hsl(200, 100%, 50%);
+}
