@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">polyfills</div>
+  </body>
+  <!-- <script src="./index.mjs" type="module"></script> -->
+  <script>
+    // map
+
+    // arr.map((e, i, ar) => doSOmethind)
+
+    Array.prototype.myMap = function (cb) {
+      const result = [];
+      for (let i = 0; i < this.length; i++) {
+        result.push(cb(this[i], i, this));
+      }
+      return result;
+    };
+
+    // filter
+    Array.prototype.myFilter = function (cb) {
+      const result = [];
+      for (let i = 0; i < this.length; i++) {
+        if (cb(this[i], i, this)) result.push(this[i]);
+      }
+      return result;
+    };
+
+    // forEach
+    Array.prototype.myForEach = function (cb) {
+      for (let i = 0; i < this.length; i++) {
+        cb(this[i], i, this);
+      }
+    };
+
+    const arr = [2, 4, 6, 8];
+    console.log(arr, "arr");
+    let pushed = [];
+    arr.forEach((e) => pushed.push(e + 9));
+    console.log(pushed, "push");
+
+    const arr2 = arr.map((e, i) => e + i);
+    console.log(arr2, "arr2");
+
+    const arr3 = arr2.filter((e) => e > 5);
+    console.log(arr3, "arr3");
+
+    Array.prototype.myReduce = function (cb, iv) {
+      let acc = iv;
+      for (let i = 0; i < this.length; i++) {
+        acc = acc !== undefined ? cb(acc, this[i]) : this[i];
+      }
+      return acc;
+    };
+
+    // reduce
+    const prd = arr.myReduce((a, c) => a + c, "");
+    const prd2 = arr.reduce((a, c) => a + c, "");
+    console.log(prd, "prd");
+    console.log(prd2, "prd2");
+
+    // fn.call(obj, ...args)
+
+    // call
+    Function.prototype.myCall = function (context = {}, ...args) {
+      if (typeof this !== "function") throw new Error("only for functions");
+
+      context =
+        context === null || context === undefined
+          ? globalThis
+          : Object(context);
+      const fnSymbol = Symbol("fn");
+      context[fnSymbol] = this;
+      let result = context[fnSymbol](...args);
+      delete context[fnSymbol];
+      return result;
+    };
+
+    let ob1 = {
+      name: "Deepanshu Narang",
+      greet(anime, place) {
+        console.log(`Hello ${anime} fan ${this.name} from ${place}`);
+        return `Hello ${anime} fan ${this.name} from ${place}`;
+      },
+    };
+
+    const ob2 = {
+      name: "Sanya",
+    };
+
+    // ob1.greet.call(ob2, "One piece", "pundri");
+    const s1 = ob1.greet.myCall(ob2, "One piece", "pundri");
+    console.log(s1, "s1");
+
+    const res = [].filter.myCall("hello world", (_e, i) => i > 5);
+    console.log(res);
+
+    // apply
+    Function.prototype.myApply = function (context = {}, args) {
+      if (typeof this !== "function") throw new Error("only for functions");
+
+      if (!Array.isArray(args))
+        throw new TypeError("CreateListFromArrayLike called on non-object");
+
+      context =
+        context === null || context === undefined
+          ? globalThis
+          : Object(context);
+      const fnSymbol = Symbol("fn");
+      context[fnSymbol] = this;
+      let result = context[fnSymbol](...args);
+      delete context[fnSymbol];
+      return result;
+    };
+
+    ob1.greet.myApply(ob2, ["One piece", "pundri"]);
+
+    // bind
+    Function.prototype.myBind = function (context, ...args) {
+      if (typeof this !== "function") throw new Error("only for functions");
+
+      // context.fn = this;
+      context =
+        context === null || context === undefined
+          ? globalThis
+          : Object(context);
+      const fnSymbol = Symbol("fn");
+      context[fnSymbol] = this;
+      return function (...nextArgs) {
+        const result = context[fnSymbol](...args, ...nextArgs);
+        delete context[fnSymbol];
+        return result;
+      };
+    };
+
+    Function.prototype.myBind2 = function (context, ...args) {
+      if (typeof this !== "function") throw new Error("only for functions");
+
+      const fn = this;
+      return function(...newArgs){
+        fn.apply(context, [...args, ...newArgs]);
+      }
+    };
+
+    const bound1 = ob1.greet.myBind(ob2, "One Piece");
+    bound1("Haryana");
+
+    //once
+    function once(fn) {
+      let ran = false;
+
+      return function (...args) {
+        if (ran) return;
+
+        ran = true;
+        fn.call(this, ...args);
+      };
+    }
+
+    const runOnce = once(() => console.log("once"));
+    runOnce();
+    runOnce();
+    runOnce();
+    runOnce();
+    runOnce();
+
+    //
+  </script>
+</html>
