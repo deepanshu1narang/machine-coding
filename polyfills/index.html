@@ -142,9 +142,9 @@
       if (typeof this !== "function") throw new Error("only for functions");
 
       const fn = this;
-      return function(...newArgs){
+      return function (...newArgs) {
         fn.apply(context, [...args, ...newArgs]);
-      }
+      };
     };
 
     const bound1 = ob1.greet.myBind(ob2, "One Piece");
@@ -168,6 +168,35 @@
     runOnce();
     runOnce();
     runOnce();
+
+    //debounce
+    function debounce(fn, delay) {
+      let timeout;
+
+      return function (...args) {
+        if (timeout) clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
+          fn.apply(this, args);
+        });
+      };
+    }
+
+    // throttle
+    function throttle(fn, delay) {
+      let last = 0;
+
+      return function (...args) {
+        const now = new Date().getTime();
+        if (now - last < time) return;
+
+        last = now;
+        fn.apply(this, args);
+      };
+    }
+    
+    // memoize
+    function memoize() {}
 
     //
   </script>
