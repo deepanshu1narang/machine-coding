@@ -4,8 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Database Management </title>
+    <link rel="stylesheet" href="styles.css">   
 </head>
 <body>
+    <div id="app">
+        <header class="header">
+            <h1>Employee Database Management</h1>
+            <button class="add_employee_button">Add Employee</button>
+        </header>
+        <div class="db-structure">
+            <div class="employee-list">
+                <h4>Employees List</h4>
+                <hr />
+            </div>
+            <div class="employee-detail">
+                <h4>Employee Information</h4>
+                <hr />
+                <div class="employee-detail__box">
+                </div>
+
+                <div class="add-employee-modal hide">
+                    <div class="add-employee-modal__form">
+                        <p class="add-employee-modal__from__header">Add New Employee</p>
+
+                        <div class="add-employee-modal__form__entries">
+                            <input name="firstName" type="text" placeholder="First Name" />
+                            <input name="lastName" type="text" placeholder="Last Name" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="imageUrl" type="text" placeholder="Image URL" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="email" type="email" placeholder="Email" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="contactNumber" type="number" placeholder="Contact Number" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="salary" type="number" placeholder="Salary" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="address" type="text" placeholder="Address" />
+                        </div>
+                        <div class="add-employee-modal__form__entries">
+                            <input name="dob" type="date" />
+                        </div>
+                        <button id="submit-employee">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
 </body>
+<script src="script.js"></script>
 </html>
