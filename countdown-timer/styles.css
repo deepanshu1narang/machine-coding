@@ -56,9 +56,8 @@ h1{
     font-size: 4rem;
 }
 
-.input-not-allowed {
-    cursor: not-allowed;
-
+[contenteditable="false"] {
+  cursor: not-allowed;
 }
 
 .buttons{

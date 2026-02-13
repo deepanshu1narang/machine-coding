@@ -21,13 +21,19 @@ startPauseButton.addEventListener("click", function(e){
         let minNum = Number(nMinutes.innerText);
         let secNum = Number(nSeconds.innerText);
 
-        if(secNum > 60){
+        if(isNaN(hourNum) || isNaN(minNum) || isNaN(secNum) || hourNum < 0 || minNum < 0 || secNum < 0){
+            alert("Please input the time correctly");
+            fnReset();
+            return;
+        }
+
+        if(secNum >= 60){
             let factor = Math.floor(Number(secNum) / 60);
             nSeconds.innerText = secNum % 60;
             minNum = factor + minNum;
         }
         
-        if(minNum > 60){
+        if(minNum >= 60){
             let factor = Math.floor(Number(minNum) / 60);
             nMinutes.innerText = minNum % 60;
             hourNum += factor;
@@ -36,13 +42,12 @@ startPauseButton.addEventListener("click", function(e){
             nMinutes.innerText = minNum;
         }
 
-        nHour.innerText += hourNum;
+        nHour.innerText = hourNum;
         
         let time = 0;
         Array.from(timerGrid.children).forEach((child, idx, arr) => {
             const childNum = child.querySelector(".timer-grid__content--number");
             childNum.setAttribute("contentEditable", !isStopWatchRunning);
-
 
             if(!childNum.innerText)
                 childNum.innerText = "0";
@@ -71,7 +76,7 @@ startPauseButton.addEventListener("click", function(e){
     }
 });
 
-let interval;
+let interval = null;
 function runTimer(time){
     interval = setInterval(() => {
         time -= 1;
@@ -82,15 +87,12 @@ function runTimer(time){
             Array.from(timerGrid.children).forEach((child, idx, arr) => {
                 const childNum = child.querySelector(".timer-grid__content--number");
                 childNum.setAttribute("contentEditable", !isStopWatchRunning);
-                childNum.setAttribute("disabled", isStopWatchRunning);
             });
             return;
         }
 
         console.log(time);
         let timer = time;
-
-        // 4000 sec
 
         const timeArr = [];
 
@@ -108,14 +110,15 @@ function runTimer(time){
     }, 1000);
 }
 
-resetButton.addEventListener('click', () => {
+function fnReset(){
     isStopWatchRunning = false;
 
     Array.from(timerGrid.children).forEach((child) => {
         const childNum = child.querySelector(".timer-grid__content--number");
         childNum.setAttribute("contentEditable", true);
-        childNum.setAttribute("disabled", false);
         childNum.innerText = "0";
     });
     clearInterval(interval);
-});
+}
+
+resetButton.addEventListener('click', fnReset);
