@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count down timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>Count down timer</h1>
+      <div class="timer-grid">
+        <div class="timer-grid__content" id="hours">
+          <div class="timer-grid__content--title">Hours</div>
+          <div class="timer-grid__content--number" contenteditable tabindex=-1>0</div>
+        </div>
+        <div class="timer-grid__content" id="minutes">            
+            <div class="timer-grid__content--title">Minutes</div>
+            <div class="timer-grid__content--number" contenteditable tabindex=-1>0</div>
+        </div>
+        <div class="timer-grid__content" id="seconds">
+            <div class="timer-grid__content--title">Seconds</div>
+            <div class="timer-grid__content--number" disabled contenteditable tabindex=-1>0</div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="start_pause">Start</button>
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
